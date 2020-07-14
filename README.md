@@ -8,8 +8,11 @@ with the desired tech stack to work on Interacpedia.
 - Plain HTML
 
 ## How to use
-You should start by making a public fork of this repository, where you can 
-make your changes, and share it with the Interacpedia team.
+You should start by making a public `fork` of this repository, where you can 
+make your changes, and share it with the Interacpedia team. You should report which tasks you have
+developed, from the list of tasks at the end of this instructions.
+
+> If you find any errors or suggestions for this template exercise, please help us make it better. :)
 
 This is created a single HTML file that can be used directly in any browser or server deployment configuration.
 
@@ -18,15 +21,17 @@ The game is currently only useful for displaying the users clicks. It alternates
 clicked cell is empty to make the move.
 
 # Tasks
-The following are the possible tasks and improvements required for the game, its not necessary to 
-accomplish all of this, it depends on what you have established with the Interacpedia team.
+> The following are the possible tasks and improvements required for the game, its not necessary to 
+accomplish all of this, it depends on what you have established with the Interacpedia team. There are some easy 
+tasks, and some more complicated.
 
 What is going to be evaluated is the appropriate use of the corresponding tools, for example, if you
 are creating a button, you should only use *tailwindcss* utility classes to make the button look ok, positioning, etc...
 The same applies to any javascript code needed, you should embrace *VueJS* standards and recommendations.
+You can also add external libraries and utilities to make your work easier, or to make advanced things.
 
 1. Add a button to reset the game to start again.
-2. Detect (add a method) when someone wins the game and display a message
+2. Detect (add a method) when someone wins the game, or the game is over, and display a message, modal, or some kind of notification.
 3. Change the `X` and `O` letters for some nice icons, could be *fontawesome*, or any other library, or you can use any nice image from the web.
 4. Change the border lines to reflect the actual triqui game and not complete squares, for example, the first
 square should not have top and left borders.
