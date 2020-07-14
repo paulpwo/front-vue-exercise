@@ -32,4 +32,8 @@ The same applies to any javascript code needed, you should embrace *VueJS* stand
 square should not have top and left borders.
 5. Create a method to make the system "play" a move. You can add a button to the interface that we can use 
 at any time to make the computer play. It can be as dumb or as intelligent as you like.
-6.  
+6. Fix the responsive version (Mobile width of 37xpx) to display correctly.
+7. Add some click sound when user plays.
+8. Add the possibility to play against the computer. (Using the method of task #5)
+9. Add the possibility to *undo* the last move. 
+10. Add the possibility to undo *many* moves.
