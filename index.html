@@ -84,7 +84,15 @@
                         width="100%" height="100%" style="position:absolute" 
                         frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div>
                     <div class="flex justify-center mt-3"> <span class="text-xl font-medium">Winner!!!</span> </div>
-                    <p class="px-16 text-center text-gray-400">The {{ current }} is winner!!! </p>
+                    <p class="px-16 text-center text-gray-400">
+                        The {{ current }}  
+                        <span v-if="current == 'X'"><i class="text-red-600 fa-solid fa-ghost"></i></span>
+                        <span v-else-if="current == 'O'" ><i class="text-blue-600 fa-solid fa-dragon"></i></span>
+                        is winner!!! 
+                    </p>
+
+                    
+
                     <div class="px-14 mt-5"> <button class="h-12 bg-blue-700 w-full text-white text-md rounded hover:shadow hover:bg-blue-800" @click="closeAlert">OK</button> </div>
                 </div>
             </div>
