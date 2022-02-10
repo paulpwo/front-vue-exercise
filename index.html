@@ -37,7 +37,16 @@
 
         <div class="bg-blue-500 ">
             <div class="bg-gray-100 p-4 ">
-                <div class="grid grid-cols-2 gap-1">
+                <div class="grid grid-cols-4 gap-1">
+                    <div class="block justify-between items-center" @click="isGameAuto = !isGameAuto">
+                        <h2 v-if="isGameAuto">Mode User to Computer is active</h2>
+                        <h2 v-else=>Normal Mode is active</h2>
+    
+                        <div class="w-16 h-10 flex items-center bg-gray-300 rounded-full p-1 duration-300 ease-in-out" :class="{ 'bg-green-400': isGameAuto}">
+                          <div class="bg-white w-8 h-8 rounded-full shadow-md transform duration-300 ease-in-out" :class="{ 'translate-x-6': isGameAuto,}"></div>
+                        </div>
+                    </div>
+
                     <div>
                         <div class="block text-gray-100 text-center bg-gray-100 px-4 py-2">
                             <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" @click="reset">Reset Game</button>
@@ -49,8 +58,16 @@
                             <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" @click="randomGame">Ramdon</button>
                         </div>
                     </div>
+
+                    <div>
+                        <div class="block text-gray-100 text-center bg-gray-100 px-4 py-2">
+                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" @click="undoGame">Undo</button>
+                        </div>
+                    </div>
+                    
                   </div>
-        
+                  
+                  
               </div>
         </div>
     </div>
@@ -96,22 +113,25 @@
                 8: '',
                 9: '',
             },
+            history: [],
             current: 'X',
             winner: null,
-            matchesCombinations : [
-                [0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7],
-                [2, 5, 8], [0, 4, 8], [2, 4, 6]
-            ],
             isAlert: false,
             winnerSound: ['winner', 'winner2', 'winner3'],
+            isGameAuto: false,
         }),
         methods:{
             play(key){
                 if(! this.values[key]) {
                     this.values[key] = this.current
                     this.current  = (this.current === 'X' ? 'O' : 'X')
+                    this.history.push(key)
                 }
                 document.getElementById('play').play();
+                if(this.isGameAuto) {
+                    this.randomGame()
+                }
+                
             },
             //create method reset game
             reset(){
@@ -192,7 +212,17 @@
                 }else{
                     this.randomGame()
                 }
-            }
+            },
+            //create method undoGame
+            undoGame(){
+                const values = this.values
+                const keys = Object.keys(values)
+                let lastElement = this.history[this.history.length - 1];
+                this.history.pop();
+                
+                this.values[lastElement] = ''
+                this.current  = (this.current === 'X' ? 'O' : 'X')
+            },
 
             
         },
