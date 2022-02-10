@@ -41,4 +41,4 @@ at any time to make the computer play. It can be as dumb or as intelligent as yo
 7. Add some click sound when user plays. - ok
 8. Add the possibility to play against the computer. (Using the method of task #5)
 9. Add the possibility to *undo* the last move. 
-10. Add the possibility to undo *many* moves.
+10. Add the possibility to undo *many* moves. 
